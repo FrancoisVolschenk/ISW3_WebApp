@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Upload Yer Foiles</title>
+		<style>
+			/* Center the form */
+			.centered-form {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+			}
+
+			/* Style the form inputs */
+			.centered-form input[type="file"],
+			.centered-form input[type="text"] {
+				width: 80%; /* Adjust the width as needed */
+				margin-bottom: 10px;
+				padding: 5px;
+			}
+
+			/* Style the submit button to fill the width of the column */
+			.centered-form button[type="submit"] {
+				color: white;
+				padding: 10px;
+				border: none;
+			}
+		</style>
+	</head>
+	<header>
+		<div>
+			<a style="color: green;" href="{% url 'home' %}">Home</a>
+			<a style="color: green;" href="{% url 'uploads' %}">View Uploaded files</a>
+			<a style="color: green;" href="#">View Contact Us</a>
+		</div>
+	</header>
+	<body style="background-color: black;">
+		<center>
+			<h1 style="color: green;">{{msg}}</h1>
+		</center>
+	</body>
+</html>

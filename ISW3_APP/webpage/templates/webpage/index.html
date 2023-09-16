@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Upload Yer Foiles</title>
+		<style>
+			/* Center the form */
+			.centered-form {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+			}
+
+			/* Style the form inputs */
+			.centered-form input[type="file"],
+			.centered-form input[type="text"] {
+				width: 80%; /* Adjust the width as needed */
+				margin-bottom: 10px;
+				padding: 5px;
+			}
+
+			/* Style the submit button to fill the width of the column */
+			.centered-form button[type="submit"] {
+				color: white;
+				padding: 10px;
+				border: none;
+			}
+		</style>
+	</head>
+	<header>
+		<div>
+			<a style="color: green;" href="{% url 'uploads' %}">View Uploaded files</a>
+			<a style="color: green;" href="#">View Contact Us</a>
+		</div>
+	</header>
+	<body style="background-color: black;">
+		<center>
+			<h1 style="color: green;">Upload files for "Secure" storage 👀</h1>
+			<form method="POST" enctype = "multipart/form-data" class="centered-form">
+				{% csrf_token %}
+				<input style="color: green" type="file" accept=".png" required id="flUpload" name="flUpload"></input>
+				<input style="color: green" type="text" required name="flName" id="flName" placeholder="Enter the file name here"></input>
+				<button style="color: green" type="submit">Upload file</button>
+			</form>
+		</center>
+		<button style="background-color: black; border: none;" onclick="console.log('This is a fairly new application. Regular maintenance is done. Some time during the week it might be undergoing maintenance and as such some safety features might be disabled...');">?</button>
+		{% if msg %}
+			<script type="text/javascript">
+				alert("{{msg}}");
+			</script>
+		{% endif %}
+	</body>
+</html>

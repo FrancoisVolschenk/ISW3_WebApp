@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Upload Yer Foiles</title>
+		<style>
+			
+			/* Style for the card container */
+			.card-container {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr); /* Create a 2x2 grid */
+				gap: 20px; /* Gap between cards */
+			}
+
+			/* Style for individual cards */
+			.card {
+				border: 1px solid #ccc;
+				padding: 20px;
+				text-align: center;
+			}
+
+			/* Style for buttons */
+			.card button {
+				background-color: green;
+				color: white;
+				padding: 5px 10px;
+				border: none;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<header>
+		<div>
+			<a style="color: green;" href="{% url 'home' %}">Home</a>
+			<a style="color: green;" href="#">View Uploaded files</a>
+			<a style="color: green;" href="#">View Contact Us</a>
+		</div>
+	</header>
+	<body style="background-color: black;">
+		<div class="card-container">
+		{% for u in uploads %}
+			<div class="card">
+				<h2 style="color: white;">{{u.file_name}}</h2>
+				<p style="color: white;">{{u.path}}</p>
+				<button onclick="alert('Sorry, that functionality is a work in progress... But you don`t need this file right now do you?');">Download</button>
+			</div>
+		{% endfor %}
+    </div>
+	</body>
+
+</html>
